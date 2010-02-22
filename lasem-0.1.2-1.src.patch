@@ -1,0 +1,21 @@
+--- origsrc/lasem-0.1.2/src/Makefile.am	2009-08-15 08:36:41.000000000 -0500
++++ src/lasem-0.1.2/src/Makefile.am	2009-10-28 21:09:24.405895400 -0500
+@@ -12,6 +12,9 @@ AM_CFLAGS =\
+ 
+ lib_LTLIBRARIES = liblasem.la
+ 
++liblasem_la_LDFLAGS =				\
++	-no-undefined
++
+ liblasem_la_LIBADD = 				\
+ 	../itex2mml/libitex2mml.la		\
+ 	$(LASEM_LIBS)
+@@ -189,8 +192,6 @@ bin_PROGRAMS = lasemtest lasemrender
+ lasemrender_SOURCES = 				\
+ 	lasemrender.c
+ 
+-lasemrender_LDFLAGS =
+-
+ lasemrender_LDADD = $(LASEM_LIBS) liblasem.la ../itex2mml/libitex2mml.la
+ 
+ lasemtest_SOURCES = 				\
